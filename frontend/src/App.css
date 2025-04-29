@@ -1,0 +1,26 @@
+:root {
+  --color-brown: #565025;
+  --color-orange: #F58012;
+  --color-purple: #C378EA;
+  --color-yellow: #D2BE01;
+  --color-red: #E21A37;
+  --color-blue: #3252FF;
+  --color-grenn: #71DB00;
+  --color-pink: #FE67E0;
+  --color-dark-gray: #8E8A7B;
+  --color-light-gray: #CFD1D1;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-black);
+  height: 100lvh;
+}

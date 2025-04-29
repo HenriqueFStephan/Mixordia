@@ -1,0 +1,15 @@
+header {
+    background-color: black;
+    height: 12lvh;
+    width: 100lvw;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* X-offset, Y-offset, Blur, Spread, Color */
+    margin-bottom: black solid 10px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    position: sticky;
+    z-index: 100;
+}

@@ -1,0 +1,8 @@
+.soundCloud {
+    position: absolute;
+    right: 38%;
+    bottom: 0lvh;
+    height: 10lvh;
+    z-index: 999999;
+    display: none;
+}

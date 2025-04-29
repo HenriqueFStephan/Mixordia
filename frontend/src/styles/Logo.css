@@ -1,0 +1,21 @@
+.logo {
+    height: 60%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    margin-top: 3lvh;
+    margin-right: 2lvw;
+}
+
+.mixordia {
+    height: 100%;
+    margin-top: 0;
+    margin-left: 1lvw;
+    aspect-ratio: 5/2;
+}
+
+.instagram {
+    height: 50%;
+    margin-bottom: 1lvh;
+}
+
+  

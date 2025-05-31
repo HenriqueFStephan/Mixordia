@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "../styles/TVEffect.scss";
 import "../styles/Buttom.css"
 
-const TVEffect = ({setShowForm}) => {
+const TVEffect = ({setShowForm, setShowImages}) => {
 
   useEffect(() => {
     function getRandomInt(min, max) {
@@ -214,6 +214,14 @@ const TVEffect = ({setShowForm}) => {
               }} 
               >
               Subscribe to Our Newsletter
+            </button>
+            <button
+              className="main-button"
+              onClick={() => {
+              setShowImages(true);
+              }} 
+              >
+              Images
             </button>
           </div>
         </div>

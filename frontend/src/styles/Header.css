@@ -1,15 +1,40 @@
-header {
-    background-color: black;
-    height: 12lvh;
-    width: 100lvw;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* X-offset, Y-offset, Blur, Spread, Color */
-    margin-bottom: black solid 10px;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0;
-    margin: 0;
-    position: sticky;
-    z-index: 100;
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 20vh;
+}
+
+.header-social {
+  align-items: center;
+  display: flex;
+}
+
+#mixordia-logo {
+  height: 50px;
+}
+
+#instagram-logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+#soundcloud-logo {
+  height: 50px;
+  margin: 0 10px;
+}
+
+#ra-logo {
+  height: 80px;
+}
+
+svg {
+  transition: 3s ease-out;
+  cursor: pointer;
+  fill: #f0f2eb;
+}
+
+svg:hover {
+  transition: 0.3s ease-in;
+  fill: #e21a37;
 }

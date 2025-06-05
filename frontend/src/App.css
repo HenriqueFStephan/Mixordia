@@ -19,8 +19,5 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   background-color: var(--color-black);
-  height: 100lvh;
 }

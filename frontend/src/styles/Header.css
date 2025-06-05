@@ -8,6 +8,7 @@
 .header-social {
   align-items: center;
   display: flex;
+  gap: 20px;
 }
 
 #mixordia-logo {
@@ -16,12 +17,11 @@
 
 #instagram-logo {
   height: 50px;
-  margin-right: 10px;
 }
 
 #soundcloud-logo {
   height: 50px;
-  margin: 0 10px;
+  margin-left: 10px;
 }
 
 #ra-logo {
@@ -37,4 +37,23 @@ svg {
 svg:hover {
   transition: 0.3s ease-in;
   fill: #e21a37;
+}
+
+@media screen and (max-width: 720px) {
+  #mixordia-logo {
+  height: 30px;
+}
+
+#instagram-logo {
+  height: 30px;
+}
+
+#soundcloud-logo {
+  height: 30px;
+  margin-left: 5px;
+}
+
+#ra-logo {
+  height: 50px;
+}
 }

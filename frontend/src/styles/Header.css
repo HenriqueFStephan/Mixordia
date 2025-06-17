@@ -1,59 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .header {
+  background-color: #000;
+  min-height: 15vh;
+}
+
+.navbar {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background: transparent;
+  z-index: 999;
+}
+
+.navbar-container {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  height: 20vh;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 1600px;
 }
 
-.header-social {
+.mixordia-logo {
+  cursor: pointer;
+  fill: #fff;
+  height: 60px;
+  transition: 2s ease-in;
+}
+
+.mixordia-logo:hover {
+  fill: #E21A37;
+  transition: 0.4s ease-out;
+}
+
+.instagram-logo, .soundcloud-logo {
+  cursor: pointer;
+  fill: #fff;
+  height: 40px;  
+  transition: 2s ease-in;
+}
+
+.ra-logo {
+  cursor: pointer;
+  fill: #fff;
+  height: 80px;
+  padding-top: 10px;
+  margin: 0 -15px;
+  transition: 2s ease-in;
+}
+
+.instagram-logo:hover, .soundcloud-logo:hover, .ra-logo:hover {
+  fill: #E21A37;
+  transition: 0.4s ease-out;
+}
+
+.navbar-container, .navbar-menu {
   align-items: center;
   display: flex;
-  gap: 20px;
+  text-align: center;
+  gap: 1.5rem;
+  list-style: none;
 }
 
-#mixordia-logo {
-  height: 50px;
+.navbar-container, .navbar-menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 1000;
+  letter-spacing: .1em;
+  border-radius: 20px;
+  transition: all 0.7s ease;
+  white-space: nowrap;  
 }
 
-#instagram-logo {
-  height: 50px;
+.navbar-continer, .navbar-menu li a:hover {
+  color: #E21A37;
 }
 
-#soundcloud-logo {
-  height: 50px;
-  margin-left: 10px;
-}
-
-#ra-logo {
-  height: 80px;
-}
-
-svg {
-  transition: 3s ease-out;
+.navbar-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
-  fill: #f0f2eb;
+  padding: 10px;
 }
 
-svg:hover {
-  transition: 0.3s ease-in;
-  fill: #e21a37;
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 720px) {
-  #mixordia-logo {
-  height: 30px;
+/* Media Query */
+
+@media (max-width: 880px) {
+  .navbar {
+    backdrop-filter: none;
+  }
+
+  .navbar-container .navbar-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    height: 100vh;
+    width: 250px;
+    top: 0;
+    right: 0;
+    padding: 5rem 1.5rem;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+  }
+
+  .ra-logo {
+    margin-top: -10px;
+    margin-left: 2px;
+  }
+
+  .navbar-container .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: block;
+    z-index: 999;
+  }
+
+  .navbar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .navbar-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .mixordia-logo {
+    height: 40px;
+  }
 }
 
-#instagram-logo {
-  height: 30px;
-}
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
 
-#soundcloud-logo {
-  height: 30px;
-  margin-left: 5px;
-}
+  .navbar-logo {
+    font-size: 1.7rem;
+  }
 
-#ra-logo {
-  height: 50px;
-}
+  .navbar-container .navbar-menu {
+    width: 180px;
+  }
+
+  .navbar-container .navbar-menu li a {
+    font-size: 1.2rem;
+    padding: 3px 15px;
+  }
+  
+  .mixordia-logo {
+    height: 25px;
+  }
 }

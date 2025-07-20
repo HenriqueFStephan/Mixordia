@@ -1,15 +1,173 @@
-header {
-    background-color: black;
-    height: 12lvh;
-    width: 100lvw;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* X-offset, Y-offset, Blur, Spread, Color */
-    margin-bottom: black solid 10px;
-    justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: #000;
+  min-height: 15vh;
+}
+
+.navbar {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background: transparent;
+  z-index: 999;
+}
+
+.navbar-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2rem;
+  max-width: 1600px;
+}
+
+.mixordia-logo:hover {
+  fill: #E21A37;
+  transition: 0.4s ease-out;
+}
+
+.instagram-logo, .soundcloud-logo, .mixordia-logo {
+  cursor: pointer;
+  fill: #fff;
+  height: 40px;  
+  transition: 2s ease-in;
+}
+
+.ra-logo {
+  cursor: pointer;
+  fill: #fff;
+  height: 80px;
+  padding-top: 10px;
+  margin: 0 -15px;
+  transition: 2s ease-in;
+}
+
+.instagram-logo:hover, .soundcloud-logo:hover, .ra-logo:hover {
+  fill: #E21A37;
+  transition: 0.4s ease-out;
+}
+
+.navbar-container, .navbar-menu {
+  align-items: center;
+  display: flex;
+  text-align: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navbar-container, .navbar-menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 1000;
+  letter-spacing: .1em;
+  border-radius: 20px;
+  transition: all 0.7s ease;
+  white-space: nowrap;  
+}
+
+.navbar-continer, .navbar-menu li a:hover {
+  color: #E21A37;
+}
+
+.navbar-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Media Query */
+
+@media (max-width: 880px) {
+  .navbar {
+    backdrop-filter: none;
+  }
+
+  .navbar-container .navbar-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    height: 100vh;
+    width: 250px;
+    top: 0;
+    right: 0;
+    padding: 5rem 1.5rem;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+  }
+
+  .ra-logo {
+    margin-top: -10px;
+    margin-left: 2px;
+  }
+
+  .navbar-container .navbar-menu.active {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0;
-    margin: 0;
-    position: sticky;
-    z-index: 100;
+  }
+
+  .navbar-toggle {
+    display: block;
+    z-index: 999;
+  }
+
+  .navbar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .navbar-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .mixordia-logo {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.7rem;
+  }
+
+  .navbar-container .navbar-menu {
+    width: 180px;
+  }
+
+  .navbar-container .navbar-menu li a {
+    font-size: 1.2rem;
+    padding: 3px 15px;
+  }
+  
+  .mixordia-logo {
+    height: 25px;
+  }
 }

@@ -33,9 +33,9 @@
     //   background-image: url("../../public/files/images/Artboard\ 2.jpg");
     //   background-size: contain;
       background-image: url("../../public/files/images/Avatar\ 1.jpg");
-      background-size: 110%;
-      background-repeat: no-repeat;
       background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
   }
   
   
@@ -60,19 +60,19 @@
   }
   
   .screen-container {
-          width: 80lvw;
-          height: 70lvh;
+          width: 90lvw;
+          height: 75vh;
       overflow: hidden;
       position: relative;
   }
   
   .screen-wrapper {
       position: relative;
-      width: 100%;
-      height: 100%;	
+      height: 100%;
+      width: 100.1%;
       
       &:first-child {
-          // opacity: 0;
+          opacity: 0.98;
       }
   }
   

@@ -5,10 +5,10 @@ import { addFollower } from "./functions/addFollower";
 const NewsletterForm = ({ setShowForm, name, setName, email, setEmail, age, setAge, country, setCountry }) => {
 
   const followerData = {
-        name:'Felix',
+        name:'Henrique',
         age:30,
         country:'Brazil',
-        email:'felixOPugnero@gmail.com'
+        email:'henrique.f.stephan@gmail.com'
     }
   console.log(followerData)
 

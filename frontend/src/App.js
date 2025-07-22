@@ -10,6 +10,7 @@ import './App.css';
 
 // Import Hooks
 import { HookNewsletterForm } from './hooks/HookNewsletterForm';
+import { HookNavbar } from './hooks/HookNavbar';
 
 function App() {
   const { 
@@ -20,11 +21,21 @@ function App() {
     country, setCountry,
     email, setEmail,    
     followerData } = HookNewsletterForm();
+
+    const {      
+    navbarToggle, setNavbarToggle,
+    navbarMenu, setNavbarMenu,
+    handleToggle,
+    } = HookNavbar()
   
   
   return (
     <>
-        <Header />
+        <Header navbarToggle={navbarToggle}
+                navbarMenu={navbarMenu}
+                handleToggle={handleToggle}
+                setNavbarToggle={setNavbarToggle}
+                setNavbarMenu={setNavbarMenu} />
         <TVEffect setShowForm={setShowForm} setShowImages={setShowImages}/>
         {showForm && <NewsletterForm 
             setShowForm={setShowForm}

@@ -72,7 +72,7 @@ const Header = ({navbarToggle, navbarMenu, handleToggle, setNavbarToggle, setNav
           <span class="bar"></span>
           <span class="bar"></span>
         </button>
-        {navbarMenu && <ul className="navbar-menu active">
+        <ul className={`navbar-menu ${navbarToggle ? 'active' : ''}`}>
           <li><a href="#">Fotos</a></li>
           <li><a href="#">Newsletter</a></li>
           <li class="social-link">
@@ -210,7 +210,7 @@ const Header = ({navbarToggle, navbarMenu, handleToggle, setNavbarToggle, setNav
               </svg>
             </a>
           </li>
-        </ul>}
+        </ul>
       </div>
     </nav>
       </header>  

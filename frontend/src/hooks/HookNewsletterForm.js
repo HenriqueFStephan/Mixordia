@@ -11,11 +11,6 @@ export function HookNewsletterForm() {
 
     const [email, setEmail] = useState('')
 
-
-    /**
-     * Take show images out of this kooh into its own hook
-     */
-
     const [showImages, setShowImages] = useState(false);
 
     return {

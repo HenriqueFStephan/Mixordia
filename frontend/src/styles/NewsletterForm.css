@@ -23,8 +23,10 @@
 .input-group {
   margin: 20px 0;
   position: relative;
+  width: 360px;          /* keeps label + field aligned */
 }
 
+/* floating label */
 .input-group label {
   position: absolute;
   transform: translateY(-50%);
@@ -34,11 +36,13 @@
   pointer-events: none;
   color: #fff;
   padding: 0 5px;
-  transition: .5s;
+  transition: 0.3s;
 }
 
-.input-group input {
-  width: 360px;
+/* base style for input + select */
+.input-group input,
+.input-group select {
+  width: 100%;
   height: 60px;
   color: #fff;
   font-size: 16px;
@@ -49,16 +53,30 @@
   border-radius: 5px;
 }
 
-.input-group input:focus~label,
-.input-group input:valid~label {
+/* nicer select dropdown */
+.input-group select option {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+/* FLOAT LABEL when field is focused or has a value (valid) */
+.input-group input:focus ~ label,
+.input-group input:valid ~ label,
+.input-group select:focus ~ label,
+.input-group select:valid ~ label {
   top: 0;
   background-color: #fff;
   color: #000;
-  font-size: 16px;
+  font-size: 14px;
+  transform: translateY(-50%);
 }
+
+
 
 .btnWrapper {
   display: flex;
   gap: 50px;
   margin: 30px 0;
 }
+

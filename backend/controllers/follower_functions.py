@@ -18,9 +18,11 @@ FOLLOWERS_FILE = os.path.join(
 
 FOLLOWERS_FILE = os.path.abspath(FOLLOWERS_FILE)
 
-def generate_confirmation_token(email, name):
+def generate_confirmation_token(follower_data: dict):
     serializer = URLSafeTimedSerializer(SECRET_KEY)
-    return serializer.dumps({'email': email, 'name': name}, salt='email-confirmation-salt')
+    # store entire form data inside the token
+    return serializer.dumps(follower_data, salt='email-confirmation-salt')
+
 
 def confirm_token(token, expiration=3600):
     serializer = URLSafeTimedSerializer(SECRET_KEY)
@@ -30,37 +32,37 @@ def confirm_token(token, expiration=3600):
             salt='email-confirmation-salt',
             max_age=expiration
         )
-        return data  # Now returns dict with 'email' and 'name'
+        # now "data" is the full follower dict
+        return data
     except Exception:
         return False
 
 
+
 def send_confirmation_email(data):
-    name = data.get('name')
+    # try both keys so you can rename later without breaking
+    name = data.get('fullName') or data.get('name') or 'there'
     email = data.get('email')
 
-    token = generate_confirmation_token(email, name)
+    # token now includes ALL fields
+    token = generate_confirmation_token(data)
     confirm_link = f"{CONFIRMATION_URL}?token={token}"
 
-
     html_body = f"""
-                <html>
-                <body>
-                    <div style="text-align: center;">
-                    <h2>Hi {name}, confirm your subscription</h2>
-                    <p>
-                        <a href="{confirm_link}">Click here to confirm your email</a>
-                    </p>
-                    <p>Thanks for joining us!</p>
-                    </div>
-                </body>
-                </html>
-                """
-
-    
+        <html>
+        <body>
+            <div style="text-align: center;">
+            <h2>Hi {name}, confirm your subscription</h2>
+            <p>
+                <a href="{confirm_link}">Click here to confirm your email</a>
+            </p>
+            <p>Thanks for joining us!</p>
+            </div>
+        </body>
+        </html>
+    """
 
     subject = 'Please confirm your subscription'
-
 
     sender_email = os.environ.get('SMTP_USER')
     sender_password = os.environ.get('SMTP_PASSWORD')
@@ -72,7 +74,6 @@ def send_confirmation_email(data):
     message['To'] = email
     message['Subject'] = subject
     message.attach(MIMEText(html_body, 'html'))
-
 
     try:
         with smtplib.SMTP(smtp_server, smtp_port) as server:
@@ -86,10 +87,14 @@ def send_confirmation_email(data):
 
 
 
-def save_follower(name, email):
+def save_follower(follower_data: dict):
+    """
+    follower_data: full dict from the form (decoded from token)
+    """
+    email = follower_data.get('email')
+
     follower_entry = {
-        'name': name,
-        'email': email,
+        **follower_data,
         'date': datetime.now().strftime('%d/%m/%Y')
     }
 
@@ -110,4 +115,5 @@ def save_follower(name, email):
         json.dump(followers, f, indent=4)
 
     return {'message': 'Follower saved successfully.'}
+
 

@@ -215,14 +215,6 @@ const TVEffect = ({setShowForm, setShowImages}) => {
               >
               Subscribe to Our Newsletter
             </button>
-            <button
-              className="main-button"
-              onClick={() => {
-              setShowImages(true);
-              }} 
-              >
-              Images
-            </button>
           </div>
         </div>
     </div>

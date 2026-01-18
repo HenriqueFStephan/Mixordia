@@ -32,6 +32,7 @@
   gap: 0;
   pointer-events: auto;
   z-index: 10002;
+  overflow: hidden;
 }
 
 .gallery-close-btn {
@@ -57,8 +58,8 @@
 
 .gallery-grid {
   --cols: 8;
-  --tile-w: calc(100% / var(--cols));
-  --tile-h: calc(var(--tile-w) * 5 / 4);
+  --tile-w: calc(88% / var(--cols));
+
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -66,6 +67,16 @@
   align-content: flex-start;
   gap: 0;
   padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.gallery-grid::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
 }
 
 .gallery-grid-item {

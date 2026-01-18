@@ -14,6 +14,11 @@ cache = {
     'cache_duration': timedelta(hours=1)  # Cache for 1 hour
 }
 
+# Cache for downloaded image files
+image_file_cache = {
+    # file_id: {'data': bytes, 'content_type': str, 'cached_at': datetime}
+}
+
 def get_google_drive_images():
     """
     Fetch images from Google Drive folder.
@@ -126,22 +131,48 @@ def refresh_images():
 def proxy_image(file_id):
     """
     Proxy endpoint to serve Google Drive images and avoid CORS issues.
-    Downloads the image from Google Drive and serves it through the backend.
+    Downloads the image from Google Drive and caches it in memory.
+    Subsequent requests serve from cache for instant loading.
     """
     try:
-        # Construct the Google Drive download URL
+        now = datetime.now()
+        
+        # Check if image is in cache and not expired (cache for 1 hour)
+        if file_id in image_file_cache:
+            cached = image_file_cache[file_id]
+            if now - cached['cached_at'] < timedelta(hours=1):
+                print(f"Serving cached image: {file_id}")
+                return Response(
+                    cached['data'],
+                    mimetype=cached['content_type'],
+                    headers={
+                        'Cache-Control': 'public, max-age=3600',
+                        'Access-Control-Allow-Origin': '*'
+                    }
+                )
+        
+        # Image not in cache or expired - fetch from Google Drive
+        print(f"Downloading image from Google Drive: {file_id}")
         google_drive_url = f"https://drive.google.com/uc?export=download&id={file_id}"
         
         # Fetch the image from Google Drive
-        response = requests.get(google_drive_url, stream=True)
+        response = requests.get(google_drive_url, timeout=10)
         
         if response.status_code == 200:
             # Get the content type from the response
             content_type = response.headers.get('Content-Type', 'image/jpeg')
+            image_data = response.content
+            
+            # Store in cache
+            image_file_cache[file_id] = {
+                'data': image_data,
+                'content_type': content_type,
+                'cached_at': now
+            }
             
             # Return the image with proper headers
             return Response(
-                response.content,
+                image_data,
                 mimetype=content_type,
                 headers={
                     'Cache-Control': 'public, max-age=3600',  # Cache for 1 hour
@@ -156,6 +187,10 @@ def proxy_image(file_id):
     
     except Exception as e:
         print(f"Error proxying image {file_id}: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
         return jsonify({
             'success': False,
             'error': str(e)

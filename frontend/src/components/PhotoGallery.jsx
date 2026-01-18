@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import "../styles/PhotoGallery.css";
 
 const PhotoGallery = ({ onClose }) => {
@@ -53,6 +54,7 @@ const PhotoGallery = ({ onClose }) => {
 
   const closeImage = () => {
     setSelectedIndex(null);
+    document.body.classList.remove('lightbox-open');
   };
 
   useEffect(() => {
@@ -70,6 +72,16 @@ const PhotoGallery = ({ onClose }) => {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [selectedIndex, onClose]);
+
+  // Add/remove class when lightbox opens/closes
+  useEffect(() => {
+    if (selectedIndex !== null) {
+      document.body.classList.add('lightbox-open');
+    }
+    return () => {
+      document.body.classList.remove('lightbox-open');
+    };
+  }, [selectedIndex]);
 
   // Show loading state
   if (loading) {
@@ -153,7 +165,7 @@ const PhotoGallery = ({ onClose }) => {
         </div>
       </div>
 
-      {selectedIndex !== null && (
+      {selectedIndex !== null && createPortal(
         <div className="gallery-lightbox" onClick={closeImage}>
           <div
             className="gallery-lightbox-content"
@@ -177,7 +189,8 @@ const PhotoGallery = ({ onClose }) => {
               ›
             </button>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

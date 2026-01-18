@@ -5,8 +5,15 @@
         "date": "20/07/2025"
     },
     {
-        "name": "Henrique",
+        "preferredContact": "SMS",
         "email": "henrique.f.stephan@gmail.com",
-        "date": "20/07/2025"
+        "phone": "(11) 13831-9139",
+        "cpf": "319.139.183-78",
+        "fullName": "ADoadnoinapdm",
+        "birthDate": "13/13/4211",
+        "cityState": "Asonsao",
+        "favoriteDrink": "Drink autoral da casa",
+        "favoriteArtist": "Banda X",
+        "date": "30/11/2025"
     }
 ]

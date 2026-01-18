@@ -71,8 +71,7 @@ const Header = () => {
           <span class="bar"></span>
         </button>
         <ul class="navbar-menu">
-          <li><a href="#">Fotos</a></li>
-          <li><a href="#">Newsletter</a></li>
+          {/* <li><a href="#">Fotos</a></li> */}
           <li class="social-link">
             <a
               href="https://soundcloud.com/mixordia"
@@ -189,7 +188,8 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a href="" class="social-link">
+            <a href="https://ra.co/events/2225504" 
+              class="social-link">
               <svg
                 class="ra-logo"
                 xmlns="http://www.w3.org/2000/svg"

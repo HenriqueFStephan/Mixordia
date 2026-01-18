@@ -52,7 +52,7 @@ def send_confirmation_email(data):
         <html>
         <body>
             <div style="text-align: center;">
-            <h2>Hi {name}, confirm your subscription</h2>
+            <h2>Hi {name}, confirm your subscription to Mixordia's data base</h2>
             <p>
                 <a href="{confirm_link}">Click here to confirm your email</a>
             </p>

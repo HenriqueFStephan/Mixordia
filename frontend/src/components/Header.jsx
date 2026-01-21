@@ -76,7 +76,7 @@ const Header = ({navbarToggle, navbarMenu, handleToggle, setNavbarToggle, setNav
           {/* <li><a href="#">Fotos</a></li> */}
           <li class="social-link">
             <a
-              href="https://soundcloud.com/mixordia"
+              href="https://soundcloud.com/mixordiamusic"
               target="_blank"
               rel="noreferrer"
               class="social-link"

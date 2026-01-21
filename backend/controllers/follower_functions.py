@@ -1,6 +1,5 @@
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 from itsdangerous import URLSafeTimedSerializer
 import os
 import json
@@ -63,24 +62,22 @@ def send_confirmation_email(data):
     """
 
     subject = 'Please confirm your subscription'
-
-    sender_email = os.environ.get('SMTP_USER')
-    sender_password = os.environ.get('SMTP_PASSWORD')
-    smtp_server = os.environ.get('SMTP_SERVER')
-    smtp_port = int(os.environ.get('SMTP_PORT'))
-
-    message = MIMEMultipart()
-    message['From'] = sender_email
-    message['To'] = email
-    message['Subject'] = subject
-    message.attach(MIMEText(html_body, 'html'))
+    
+    # Get SendGrid API key from environment
+    sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')
+    sender_email = os.environ.get('SMTP_USER', 'mixordianewsletter@gmail.com')
 
     try:
-        with smtplib.SMTP(smtp_server, smtp_port) as server:
-            server.starttls()
-            server.login(sender_email, sender_password)
-            server.sendmail(sender_email, email, message.as_string())
-
+        message = Mail(
+            from_email=sender_email,
+            to_emails=email,
+            subject=subject,
+            html_content=html_body
+        )
+        
+        sg = SendGridAPIClient(sendgrid_api_key)
+        response = sg.send(message)
+        
         return {'message': 'Confirmation email sent successfully!'}
     except Exception as e:
         return {'message': f'Failed to send email: {str(e)}'}

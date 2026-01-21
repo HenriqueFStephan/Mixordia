@@ -1,72 +1,19 @@
-{
-  "data": {
-    "20250531162927103743": {
-      "name": "Zezin",
-      "country": "Germany",
-      "contactType": 2,
-      "date": "31/05/2025"
+[
+    {
+        "name": "Existing Name",
+        "email": "existing@email.com",
+        "date": "20/07/2025"
     },
-    "20250531170441975132": {
-      "name": "zezin",
-      "country": "Brazil",
-      "contactType": null,
-      "date": "31/05/2025"
-    },
-    "20250531173000757166": {
-      "name": "zezin",
-      "country": "Brazil",
-      "contactType": null,
-      "date": "31/05/2025"
-    },
-    "20250531173026846512": {
-      "name": "zezin",
-      "country": "Brazil",
-      "contactType": null,
-      "date": "31/05/2025"
-    },
-    "20250531173912618623": {
-      "name": "zezin",
-      "country": "Brazil",
-      "contactType": null,
-      "date": "31/05/2025"
-    },
-    "20250531173920925464": {
-      "name": "zezin",
-      "country": "Brazil",
-      "contactType": null,
-      "date": "31/05/2025"
-    },
-    "20250531173922459548": {
-      "name": "zezin",
-      "country": "Brazil",
-      "contactType": null,
-      "date": "31/05/2025"
-    },
-    "20250531173924595799": {
-      "name": "zezin",
-      "country": "Brazil",
-      "contactType": null,
-      "date": "31/05/2025"
-    },
-    "20250531174011218524": {
-      "name": "Felix",
-      "country": "Brazil",
-      "contactType": null,
-      "date": "31/05/2025"
-    },
-    "20250531174111483318": {
-      "name": "Felix",
-      "country": "Brazil",
-      "email": "felixOPugnero@gmail.com",
-      "date": "31/05/2025"
-    },
-    "20250531174810259470": {
-      "name": "Felix",
-      "country": "Brazil",
-      "email": "felixOPugnero@gmail.com",
-      "date": "31/05/2025"
+    {
+        "preferredContact": "SMS",
+        "email": "henrique.f.stephan@gmail.com",
+        "phone": "(11) 13831-9139",
+        "cpf": "319.139.183-78",
+        "fullName": "ADoadnoinapdm",
+        "birthDate": "13/13/4211",
+        "cityState": "Asonsao",
+        "favoriteDrink": "Drink autoral da casa",
+        "favoriteArtist": "Banda X",
+        "date": "30/11/2025"
     }
-  }
-}
-
-
+]

@@ -17,7 +17,10 @@ CORS(app, resources={
             "https://mixordia.vercel.app",
             "http://localhost:3000",
             "http://localhost:5000"
-        ]
+        ],
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "supports_credentials": True
     }
 })
 

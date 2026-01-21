@@ -49,19 +49,35 @@ def send_confirmation_email(data):
 
     html_body = f"""
         <html>
-        <body>
-            <div style="text-align: center;">
-            <h2>Hi {name}, confirm your subscription to Mixordia's data base</h2>
-            <p>
-                <a href="{confirm_link}">Click here to confirm your email</a>
-            </p>
-            <p>Thanks for joining us!</p>
+        <head>
+            <meta charset="UTF-8">
+        </head>
+        <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="text-align: center; background-color: #f5f5f5; padding: 30px; border-radius: 10px;">
+                <h2 style="color: #333;">Welcome to Mixordia, {name}! 🎵</h2>
+                <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                    Thank you for joining our community! Please confirm your email address to complete your subscription.
+                </p>
+                <div style="margin: 30px 0;">
+                    <a href="{confirm_link}" 
+                       style="background-color: #000; color: #fff; padding: 15px 30px; 
+                              text-decoration: none; border-radius: 5px; display: inline-block;
+                              font-weight: bold;">
+                        Confirm Email Address
+                    </a>
+                </div>
+                <p style="color: #999; font-size: 14px;">
+                    If you didn't request this, you can safely ignore this email.
+                </p>
+                <p style="color: #999; font-size: 12px; margin-top: 30px;">
+                    © 2026 Mixordia. All rights reserved.
+                </p>
             </div>
         </body>
         </html>
     """
 
-    subject = 'Please confirm your subscription'
+    subject = 'Confirm your Mixordia subscription'
     
     # Get SendGrid API key from environment
     sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')

@@ -210,7 +210,7 @@ const Header = ({navbarToggle, navbarMenu, handleToggle, setNavbarToggle, setNav
               </svg>
             </a>
           </li>
-        </ul>}
+        </ul>
       </div>
     </nav>
       </header>  

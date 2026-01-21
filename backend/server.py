@@ -8,12 +8,6 @@ import os
 # Load environment variables from .env file
 load_dotenv()
 
-# Set SMTP variables (these could also be moved to .env)
-os.environ['SMTP_USER'] = 'mixordianewsletter@gmail.com'
-os.environ['SMTP_PASSWORD'] = 'ocgs wwvp ivxi smta'
-os.environ['SMTP_SERVER'] = 'smtp.gmail.com'
-os.environ['SMTP_PORT'] = '587'
-
 app = Flask(__name__)
 CORS(app)
 

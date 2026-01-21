@@ -10,19 +10,8 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Configure CORS to allow Vercel frontend and local development
-CORS(app, resources={
-    r"/*": {
-        "origins": [
-            "https://mixordia.vercel.app",
-            "http://localhost:3000",
-            "http://localhost:5000"
-        ],
-        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-        "allow_headers": ["Content-Type", "Authorization"],
-        "supports_credentials": True
-    }
-})
+# Temporarily allow all origins for debugging
+CORS(app, origins="*", supports_credentials=True)
 
 # Register Blueprints
 app.register_blueprint(follower_data)

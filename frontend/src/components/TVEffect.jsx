@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "../styles/TVEffect.scss";
 import "../styles/Buttom.css"
+import PhotoGallery from "./PhotoGallery";
 
 const TVEffect = ({setShowForm, setShowImages}) => {
+  const [showGallery, setShowGallery] = useState(false);
 
   useEffect(() => {
     function getRandomInt(min, max) {
@@ -206,24 +208,29 @@ const TVEffect = ({setShowForm, setShowImages}) => {
     <>
     <div className="screen-wrapper-container">
         <div id="screen">
-          <div className="buttom-wrapper">
-            <button
-              className="main-button"
-              onClick={() => {
-              setShowForm(true);
-              }} 
-              >
-              Subscribe to Our Newsletter
-            </button>
-            <button
-              className="main-button"
-              onClick={() => {
-              setShowImages(true);
-              }} 
-              >
-              Images
-            </button>
-          </div>
+          {showGallery && (
+            <PhotoGallery onClose={() => setShowGallery(false)} />
+          )}
+          {!showGallery && (
+            <div className="buttom-wrapper">
+              <button
+                className="main-button"
+                onClick={() => {
+                setShowForm(true);
+                }} 
+                >
+                Inscreva-se
+              </button>
+              <button
+                className="main-button"
+                onClick={() => {
+                setShowGallery(true);
+                }} 
+                >
+                Galeria
+              </button>
+            </div>
+          )}
         </div>
     </div>
     </>

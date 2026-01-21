@@ -1,9 +1,11 @@
 .overlay {
   position: fixed;
-  text-align: center;
-  top: 0;
-  left: 0;
+  inset: 0;              /* top:0; right:0; bottom:0; left:0 */
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: ce; /* or center if you want vertical center */
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .form-container {
@@ -12,8 +14,15 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-container h2 {
@@ -23,8 +32,10 @@
 .input-group {
   margin: 20px 0;
   position: relative;
+  width: 360px; /* keeps label + field aligned */
 }
 
+/* floating label */
 .input-group label {
   position: absolute;
   transform: translateY(-50%);
@@ -34,11 +45,13 @@
   pointer-events: none;
   color: #fff;
   padding: 0 5px;
-  transition: .5s;
+  transition: 0.3s;
 }
 
-.input-group input {
-  width: 360px;
+/* base style for input + select */
+.input-group input,
+.input-group select {
+  width: 100%;
   height: 60px;
   color: #fff;
   font-size: 16px;
@@ -49,16 +62,72 @@
   border-radius: 5px;
 }
 
-.input-group input:focus~label,
-.input-group input:valid~label {
+/* nicer select dropdown */
+.input-group select option {
+  background-color: #000000d3;
+  color: #ffffff;
+}
+
+/* FLOAT LABEL when field is focused or has a value (valid) */
+.input-group input:focus ~ label,
+.input-group input:valid ~ label,
+.input-group select:focus ~ label,
+.input-group select:valid ~ label {
   top: 0;
   background-color: #fff;
-  color: #000;
-  font-size: 16px;
+  color: #000000;
+  font-size: 14px;
+  transform: translateY(-50%);
 }
 
 .btnWrapper {
   display: flex;
   gap: 50px;
   margin: 30px 0;
+}
+
+/* --- CITY AUTOCOMPLETE DROPDOWN --- */
+
+.city-autocomplete {
+  position: relative;
+  width: 360px;
+  margin: 20px 0;
+}
+
+/* avoid double margin: input-group already has margin */
+.city-autocomplete .input-group {
+  margin: 0;
+}
+
+/* dropdown container */
+.city-suggestions {
+  position: absolute;
+  top: calc(100% + 4px); /* just below the input */
+  left: 0;
+  width: 100%;
+  background-color: #000;            /* like the selects */
+  border: 1.2px solid #fff;
+  border-radius: 5px;
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 1200;                     /* above other elements in overlay */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* each suggestion row */
+.city-suggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  color: #fff;
+  font-family: inherit;              /* same as inputs/selects */
+}
+
+/* hover effect similar to select options highlight */
+.city-suggestions li:hover {
+  background-color: #111;
 }

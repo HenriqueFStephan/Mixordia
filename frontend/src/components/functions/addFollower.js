@@ -1,6 +1,6 @@
 export const addFollower = async (followerData) => {
     try {
-      const response = await fetch('http://localhost:5000/add_follower', {
+      const response = await fetch('http://localhost:5000/send_confirmation_email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

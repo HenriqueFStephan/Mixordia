@@ -72,9 +72,8 @@ const Header = ({navbarToggle, navbarMenu, handleToggle, setNavbarToggle, setNav
           <span class="bar"></span>
           <span class="bar"></span>
         </button>
-        {navbarMenu && <ul className="navbar-menu active">
-          <li><a href="#">Fotos</a></li>
-          <li><a href="#">Newsletter</a></li>
+        <ul class="navbar-menu">
+          {/* <li><a href="#">Fotos</a></li> */}
           <li class="social-link">
             <a
               href="https://soundcloud.com/mixordia"
@@ -191,7 +190,8 @@ const Header = ({navbarToggle, navbarMenu, handleToggle, setNavbarToggle, setNav
             </a>
           </li>
           <li>
-            <a href="" class="social-link">
+            <a href="https://ra.co/events/2225504" 
+              class="social-link">
               <svg
                 class="ra-logo"
                 xmlns="http://www.w3.org/2000/svg"

@@ -10,6 +10,7 @@ import './App.css';
 
 // Import Hooks
 import { HookNewsletterForm } from './hooks/HookNewsletterForm';
+import { HookNavbar } from './hooks/HookNavbar';
 
 function App() {
   const {

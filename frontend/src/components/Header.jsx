@@ -1,6 +1,6 @@
 import "../styles/Header.css"
 
-const Header = () => {
+const Header = ({navbarToggle, navbarMenu, handleToggle, setNavbarToggle, setNavbarMenu}) => {
     return (
       <header className="header">
         <nav class="navbar">
@@ -65,7 +65,9 @@ const Header = () => {
             </g>
           </svg>
         </a>
-        <button class="navbar-toggle">
+        <button onClick={() => {handleToggle(setNavbarMenu);
+                                handleToggle(setNavbarToggle);
+        }} className={`navbar-toggle ${navbarToggle ? 'active' : ''}`}>
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -208,7 +210,7 @@ const Header = () => {
               </svg>
             </a>
           </li>
-        </ul>
+        </ul>}
       </div>
     </nav>
       </header>  

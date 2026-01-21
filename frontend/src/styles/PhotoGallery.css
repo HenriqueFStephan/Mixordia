@@ -164,8 +164,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 0;
+  line-height: 1;
   padding: 0;
+  padding-bottom: 8px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
   z-index: 100001;
@@ -174,12 +175,10 @@
 
 .gallery-lightbox-nav.prev {
   left: 24px;
-  padding-left: 2px;
 }
 
 .gallery-lightbox-nav.next {
   right: 24px;
-  padding-right: 2px;
 }
 
 @media (max-width: 768px) {

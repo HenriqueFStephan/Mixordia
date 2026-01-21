@@ -5,7 +5,6 @@ import "../styles/PhotoGallery.css";
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 const PhotoGallery = ({ onClose }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -73,7 +72,7 @@ const PhotoGallery = ({ onClose }) => {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [selectedIndex, onClose]);
+  }, [selectedIndex, onClose, nextImage, prevImage]);
 
   // Add/remove class when lightbox opens/closes
   useEffect(() => {

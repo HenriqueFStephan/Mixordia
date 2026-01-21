@@ -16,7 +16,7 @@ const Overlay = () => {
             {photos.map((photo, idx) => (
             <div key={idx} className="photo-item">
 
-                <img src={`/files/images/${photo.name}`}/>
+                <img src={`/files/images/${photo.name}`} alt={photo.name || 'Photo'}/>
 
             </div>
             ))}

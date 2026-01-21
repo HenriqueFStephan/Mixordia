@@ -51,11 +51,6 @@ const NewsletterForm = ({
     setPreferredEditable(true);
   };
 
-  const handlePreferredContactInputChange = (e) => {
-    // keep using the same prop to update the value
-    onPreferredContactChange(e);
-  };
-
   // inside NewsletterForm (or wherever this JSX lives)
 
 const handleInstaChange = (e) => {
@@ -155,7 +150,7 @@ const dynamicValue =
             onChange={onCpfChange}
           />
           
-          {preferredContact != 'E-mail' &&
+          {preferredContact !== 'E-mail' &&
           <MainInput
             label="E-Mail para confirmação de registro"
             type="email"

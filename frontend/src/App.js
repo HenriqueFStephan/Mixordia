@@ -11,11 +11,19 @@ function App() {
     const instagramWeb = 'https://www.instagram.com/mixordiamusic';
     
     if (isMobile) {
-      // Try to open Instagram app, fallback to web if app not installed
+      // Direct app open - let the OS handle fallback
       window.location.href = instagramApp;
-      setTimeout(() => {
-        window.location.href = instagramWeb;
-      }, 500);
+      
+      // Only fallback to web if user is still on page after 2.5 seconds
+      // (meaning app didn't open)
+      const fallbackTimer = setTimeout(() => {
+        if (!document.hidden) {
+          window.location.href = instagramWeb;
+        }
+      }, 2500);
+      
+      // Clean up timer if user leaves (app opened)
+      window.addEventListener('blur', () => clearTimeout(fallbackTimer));
     } else {
       // Desktop: redirect to Instagram web
       window.location.href = instagramWeb;

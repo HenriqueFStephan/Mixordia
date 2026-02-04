@@ -1,4 +1,4 @@
-// Temporary Instagram Redirect for Party Launch
+﻿// Temporary Instagram Redirect for Party Launch
 import { useEffect } from 'react';
 
 function App() {
@@ -7,8 +7,8 @@ function App() {
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
     // Instagram links
-    const instagramApp = 'instagram://user?username=mixordiamusic'; // Opens in app
-    const instagramWeb = 'https://www.instagram.com/mixordiamusic'; // Opens in browser
+    const instagramApp = 'instagram://user?username=mixordiamusic';
+    const instagramWeb = 'https://www.instagram.com/mixordiamusic';
     
     if (isMobile) {
       // Try to open Instagram app, fallback to web if app not installed
@@ -35,79 +35,9 @@ function App() {
     }}>
       <div>
         <h1>Redirecting to Mixordia Instagram...</h1>
-        <p>If you're not redirected, <a href="https://www.instagram.com/mixordiamusic" style={{color: '#fff'}}>click here</a></p>
+        <p>If you are not redirected, <a href="https://www.instagram.com/mixordiamusic" style={{color: '#fff'}}>click here</a></p>
       </div>
     </div>
-  );
-}
-
-export default App;
-  const {
-      showForm,
-      setShowForm,
-      showImages,
-      setShowImages,
-
-      preferredContact,
-      email,
-      phone,
-      cpf,
-      fullName,
-      birthDate,
-      cityState,
-      favoriteDrink,
-      favoriteArtist,
-
-      onPreferredContactChange,
-      onEmailChange,
-      onPhoneChange,
-      onCpfChange,
-      onFullNameChange,
-      onBirthDateChange,
-      onCityStateChange,
-      onFavoriteDrinkChange,
-      onFavoriteArtistChange,
-
-      citySuggestions, 
-
-      onSubmit,
-    } = HookNewsletterForm();
-
-  return (
-    <>
-      <Header />
-      <TVEffect setShowForm={setShowForm} setShowImages={setShowImages} />
-
-      {showForm && (
-        <NewsletterForm
-          setShowForm={setShowForm}
-          onSubmit={onSubmit}
-          preferredContact={preferredContact}
-          email={email}
-          phone={phone}
-          cpf={cpf}
-          fullName={fullName}
-          birthDate={birthDate}
-          cityState={cityState}
-          favoriteDrink={favoriteDrink}
-          favoriteArtist={favoriteArtist}
-          onPreferredContactChange={onPreferredContactChange}
-          onEmailChange={onEmailChange}
-          onPhoneChange={onPhoneChange}
-          onCpfChange={onCpfChange}
-          onFullNameChange={onFullNameChange}
-          onBirthDateChange={onBirthDateChange}
-          onCityStateChange={onCityStateChange}
-          onFavoriteDrinkChange={onFavoriteDrinkChange}
-          onFavoriteArtistChange={onFavoriteArtistChange}
-          citySuggestions={citySuggestions}
-        />
-      )}
-
-      <SoundCloudPlayer />
-
-      {/* {showImages && <Overlay />} */}
-    </>
   );
 }
 
